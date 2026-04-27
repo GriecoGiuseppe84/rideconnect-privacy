@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – RideConnect</title>
+  <meta name="description" content="Informativa sulla Privacy di RideConnect – come raccogliamo, usiamo e proteggiamo i tuoi dati." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-bg: #f7f6f2;
+      --color-surface: #ffffff;
+      --color-text: #1a1917;
+      --color-text-muted: #6b6a67;
+      --color-primary: #01696f;
+      --color-border: #e0ddd8;
+      --color-divider: #ece9e4;
+      --radius: 0.75rem;
+      --shadow: 0 2px 16px rgba(0,0,0,0.07);
+      --font: 'Inter', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font);
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--color-primary);
+      color: #fff;
+      padding: 2.5rem 1.5rem 2rem;
+      text-align: center;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+    .logo svg { width: 36px; height: 36px; }
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+    header h1 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    header p.subtitle {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* LANG TOGGLE */
+    .lang-bar {
+      background: #fff;
+      border-bottom: 1px solid var(--color-divider);
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .lang-btn {
+      font-family: var(--font);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--color-border);
+      background: none;
+      cursor: pointer;
+      color: var(--color-text-muted);
+      transition: all 180ms ease;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #fff;
+    }
+
+    /* MAIN */
+    main {
+      max-width: 780px;
+      margin: 2.5rem auto;
+      padding: 0 1.25rem 4rem;
+    }
+
+    .card {
+      background: var(--color-surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.5rem 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 600px) {
+      .card { padding: 1.5rem 1.25rem; }
+    }
+
+    .update-badge {
+      display: inline-block;
+      background: #e6f3f4;
+      color: var(--color-primary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin: 2rem 0 0.6rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--color-divider);
+    }
+    h2:first-of-type { border-top: none; margin-top: 0; }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.2rem 0 0.3rem;
+      color: var(--color-text);
+    }
+
+    p { margin-bottom: 0.75rem; color: var(--color-text); max-width: 68ch; }
+    ul { padding-left: 1.4rem; margin-bottom: 0.75rem; }
+    ul li { margin-bottom: 0.3rem; }
+    a { color: var(--color-primary); text-decoration: underline; }
+
+    .highlight-box {
+      background: #e6f3f4;
+      border-left: 3px solid var(--color-primary);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+    }
+    .highlight-box p { margin: 0; font-size: 0.95rem; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      border-top: 1px solid var(--color-divider);
+    }
+
+    /* HIDDEN LANG */
+    [lang-content] { display: none; }
+    [lang-content].visible { display: block; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="18" cy="18" r="18" fill="rgba(255,255,255,0.15)"/>
+      <path d="M10 22c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="18" cy="13" r="3" fill="#fff"/>
+      <path d="M14 26l4-4 4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="logo-text">RideConnect</span>
+  </div>
+  <h1>Privacy Policy</h1>
+  <p class="subtitle">Informativa sul trattamento dei dati personali / Personal Data Processing Policy</p>
+</header>
+
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('it')" id="btn-it">🇮🇹 Italiano</button>
+  <button class="lang-btn" onclick="setLang('en')" id="btn-en">🇬🇧 English</button>
+</div>
+
+<main>
+
+  <!-- ===== ITALIANO ===== -->
+  <div lang-content="it" class="visible">
+    <div class="card">
+      <span class="update-badge">Ultimo aggiornamento: 27 aprile 2026</span>
+
+      <h2>1. Titolare del Trattamento</h2>
+      <p>Il titolare del trattamento dei dati è <strong>RideConnect</strong>. Per qualsiasi richiesta relativa alla privacy, puoi contattarci all'indirizzo email: <a href="mailto:privacy@rideconnect.app">privacy@rideconnect.app</a></p>
+
+      <h2>2. Dati Raccolti</h2>
+      <p>RideConnect raccoglie le seguenti categorie di dati personali:</p>
+      <h3>Dati forniti dall'utente</h3>
+      <ul>
+        <li>Nome e cognome</li>
+        <li>Indirizzo email</li>
+        <li>Numero di telefono</li>
+        <li>Foto del profilo</li>
+        <li>Dati del veicolo (marca, modello, targa)</li>
+      </ul>
+      <h3>Dati raccolti automaticamente</h3>
+      <ul>
+        <li>Posizione geografica (GPS) – solo durante l'utilizzo attivo dell'app</li>
+        <li>Indirizzo IP e tipo di dispositivo</li>
+        <li>Statistiche di utilizzo dell'applicazione</li>
+        <li>Token per notifiche push</li>
+      </ul>
+
+      <h2>3. Finalità del Trattamento</h2>
+      <p>I dati raccolti sono utilizzati per:</p>
+      <ul>
+        <li>Erogare il servizio di ride-sharing e mobilità condivisa</li>
+        <li>Gestire l'autenticazione e la sicurezza dell'account</li>
+        <li>Visualizzare la posizione in tempo reale durante i viaggi</li>
+        <li>Inviare notifiche push relative ai viaggi e agli eventi</li>
+        <li>Gestire i piani di abbonamento e i pagamenti</li>
+        <li>Adempiere ad obblighi legali e normativi</li>
+        <li>Migliorare l'applicazione attraverso dati aggregati e anonimi</li>
+      </ul>
+
+      <h2>4. Base Giuridica</h2>
+      <p>Il trattamento è fondato su:</p>
+      <ul>
+        <li><strong>Contratto:</strong> esecuzione del servizio richiesto dall'utente</li>
+        <li><strong>Consenso:</strong> per l'accesso alla posizione GPS e per le notifiche push</li>
+        <li><strong>Legittimo interesse:</strong> per sicurezza, prevenzione frodi e miglioramento del servizio</li>
+        <li><strong>Obbligo legale:</strong> ove applicabile</li>
+      </ul>
+
+      <h2>5. Condivisione dei Dati</h2>
+      <p>RideConnect non vende i tuoi dati personali a terzi. I dati possono essere condivisi con:</p>
+      <ul>
+        <li><strong>Cloudinary:</strong> archiviazione sicura delle immagini</li>
+        <li><strong>Neon (PostgreSQL):</strong> database hosting</li>
+        <li><strong>Render:</strong> infrastruttura di deployment</li>
+        <li><strong>Altri utenti dell'app:</strong> esclusivamente le informazioni necessarie per coordinare i viaggi (nome, foto profilo, veicolo)</li>
+      </ul>
+      <p>Tutti i fornitori di servizi sono vincolati da contratti di trattamento dei dati conformi al GDPR.</p>
+
+      <h2>6. Conservazione dei Dati</h2>
+      <p>I dati personali sono conservati per il tempo strettamente necessario alle finalità indicate:</p>
+      <ul>
+        <li>Dati dell'account: fino alla cancellazione dell'account</li>
+        <li>Dati di posizione GPS: non memorizzati permanentemente, utilizzati solo in tempo reale</li>
+        <li>Storico viaggi: 12 mesi dall'effettuazione del viaggio</li>
+        <li>Log di sicurezza: 6 mesi</li>
+      </ul>
+
+      <h2>7. Diritti dell'Utente</h2>
+      <p>In conformità al Regolamento (UE) 2016/679 (GDPR), hai diritto a:</p>
+      <ul>
+        <li>Accedere ai tuoi dati personali</li>
+        <li>Rettificare dati inesatti o incompleti</li>
+        <li>Richiedere la cancellazione dei tuoi dati ("diritto all'oblio")</li>
+        <li>Limitare il trattamento dei tuoi dati</li>
+        <li>Portabilità dei dati</li>
+        <li>Opporti al trattamento</li>
+        <li>Revocare il consenso in qualsiasi momento</li>
+      </ul>
+      <p>Per esercitare i tuoi diritti, contatta: <a href="mailto:privacy@rideconnect.app">privacy@rideconnect.app</a></p>
+
+      <h2>8. Sicurezza dei Dati</h2>
+      <p>RideConnect adotta misure tecniche e organizzative adeguate a proteggere i tuoi dati, tra cui:</p>
+      <ul>
+        <li>Comunicazioni crittografate via HTTPS/TLS</li>
+        <li>Autenticazione sicura con token JWT</li>
+        <li>Accesso ai dati limitato al personale autorizzato</li>
+        <li>Database ospitati su infrastrutture certificate</li>
+      </ul>
+
+      <h2>9. Minori</h2>
+      <div class="highlight-box">
+        <p>RideConnect non è destinato a bambini di età inferiore ai 13 anni. Non raccogliamo consapevolmente dati personali di minori di 13 anni. Se vieni a conoscenza che un minore ci ha fornito dati personali, contattaci immediatamente.</p>
+      </div>
+
+      <h2>10. Modifiche alla Privacy Policy</h2>
+      <p>Ci riserviamo il diritto di modificare questa informativa. In caso di modifiche sostanziali, gli utenti verranno notificati tramite l'app o via email. La data dell'ultimo aggiornamento è indicata in cima a questa pagina.</p>
+
+      <h2>11. Contatti</h2>
+      <p>Per qualsiasi domanda relativa a questa informativa sulla privacy:<br>
+      📧 <a href="mailto:privacy@rideconnect.app">privacy@rideconnect.app</a></p>
+    </div>
+  </div>
+
+  <!-- ===== ENGLISH ===== -->
+  <div lang-content="en">
+    <div class="card">
+      <span class="update-badge">Last updated: April 27, 2026</span>
+
+      <h2>1. Data Controller</h2>
+      <p>The data controller is <strong>RideConnect</strong>. For any privacy-related inquiries, you may contact us at: <a href="mailto:privacy@rideconnect.app">privacy@rideconnect.app</a></p>
+
+      <h2>2. Data We Collect</h2>
+      <p>RideConnect collects the following categories of personal data:</p>
+      <h3>Data provided by the user</h3>
+      <ul>
+        <li>Full name</li>
+        <li>Email address</li>
+        <li>Phone number</li>
+        <li>Profile photo</li>
+        <li>Vehicle information (make, model, license plate)</li>
+      </ul>
+      <h3>Automatically collected data</h3>
+      <ul>
+        <li>Geographic location (GPS) – only during active app use</li>
+        <li>IP address and device type</li>
+        <li>App usage statistics</li>
+        <li>Push notification tokens</li>
+      </ul>
+
+      <h2>3. Purpose of Processing</h2>
+      <p>Collected data is used to:</p>
+      <ul>
+        <li>Provide the ride-sharing and shared mobility service</li>
+        <li>Manage account authentication and security</li>
+        <li>Display real-time location during rides</li>
+        <li>Send push notifications about rides and events</li>
+        <li>Manage subscription plans and payments</li>
+        <li>Comply with legal and regulatory obligations</li>
+        <li>Improve the application through aggregated and anonymous data</li>
+      </ul>
+
+      <h2>4. Legal Basis</h2>
+      <p>Processing is based on:</p>
+      <ul>
+        <li><strong>Contract:</strong> performance of the service requested by the user</li>
+        <li><strong>Consent:</strong> for GPS location access and push notifications</li>
+        <li><strong>Legitimate interest:</strong> for security, fraud prevention, and service improvement</li>
+        <li><strong>Legal obligation:</strong> where applicable</li>
+      </ul>
+
+      <h2>5. Data Sharing</h2>
+      <p>RideConnect does not sell your personal data to third parties. Data may be shared with:</p>
+      <ul>
+        <li><strong>Cloudinary:</strong> secure image storage</li>
+        <li><strong>Neon (PostgreSQL):</strong> database hosting</li>
+        <li><strong>Render:</strong> deployment infrastructure</li>
+        <li><strong>Other app users:</strong> only information necessary to coordinate rides (name, profile photo, vehicle)</li>
+      </ul>
+      <p>All service providers are bound by GDPR-compliant data processing agreements.</p>
+
+      <h2>6. Data Retention</h2>
+      <p>Personal data is retained for as long as strictly necessary:</p>
+      <ul>
+        <li>Account data: until account deletion</li>
+        <li>GPS location data: not stored permanently, used in real-time only</li>
+        <li>Ride history: 12 months from the date of the ride</li>
+        <li>Security logs: 6 months</li>
+      </ul>
+
+      <h2>7. User Rights</h2>
+      <p>Under Regulation (EU) 2016/679 (GDPR), you have the right to:</p>
+      <ul>
+        <li>Access your personal data</li>
+        <li>Rectify inaccurate or incomplete data</li>
+        <li>Request deletion of your data ("right to be forgotten")</li>
+        <li>Restrict processing of your data</li>
+        <li>Data portability</li>
+        <li>Object to processing</li>
+        <li>Withdraw consent at any time</li>
+      </ul>
+      <p>To exercise your rights, contact: <a href="mailto:privacy@rideconnect.app">privacy@rideconnect.app</a></p>
+
+      <h2>8. Data Security</h2>
+      <p>RideConnect implements appropriate technical and organizational measures to protect your data, including:</p>
+      <ul>
+        <li>Encrypted communications via HTTPS/TLS</li>
+        <li>Secure authentication with JWT tokens</li>
+        <li>Data access limited to authorized personnel</li>
+        <li>Databases hosted on certified infrastructure</li>
+      </ul>
+
+      <h2>9. Children</h2>
+      <div class="highlight-box">
+        <p>RideConnect is not intended for children under the age of 13. We do not knowingly collect personal data from children under 13. If you become aware that a child has provided us with personal data, please contact us immediately.</p>
+      </div>
+
+      <h2>10. Changes to This Policy</h2>
+      <p>We reserve the right to modify this policy. In case of material changes, users will be notified through the app or via email. The date of the last update is shown at the top of this page.</p>
+
+      <h2>11. Contact</h2>
+      <p>For any questions regarding this privacy policy:<br>
+      📧 <a href="mailto:privacy@rideconnect.app">privacy@rideconnect.app</a></p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2026 RideConnect. Tutti i diritti riservati / All rights reserved.
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[lang-content]').forEach(el => {
+      el.classList.toggle('visible', el.getAttribute('lang-content') === lang);
+    });
+    document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  }
+</script>
+
+</body>
+</html>
