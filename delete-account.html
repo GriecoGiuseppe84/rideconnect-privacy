@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elimina Account – RideConnect</title>
+  <meta name="description" content="Come eliminare il tuo account RideConnect e richiedere la cancellazione dei tuoi dati personali." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-bg: #f7f6f2;
+      --color-surface: #ffffff;
+      --color-text: #1a1917;
+      --color-text-muted: #6b6a67;
+      --color-primary: #01696f;
+      --color-primary-light: #e6f3f4;
+      --color-error: #c0392b;
+      --color-error-light: #fdf0ee;
+      --color-warning: #e67e22;
+      --color-warning-light: #fef9f0;
+      --color-border: #e0ddd8;
+      --color-divider: #ece9e4;
+      --radius: 0.75rem;
+      --shadow: 0 2px 16px rgba(0,0,0,0.07);
+      --font: 'Inter', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font);
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--color-primary);
+      color: #fff;
+      padding: 2.5rem 1.5rem 2rem;
+      text-align: center;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+      text-decoration: none;
+    }
+    .logo svg { width: 36px; height: 36px; }
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+    header h1 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    header p.subtitle {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* LANG TOGGLE */
+    .lang-bar {
+      background: #fff;
+      border-bottom: 1px solid var(--color-divider);
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .lang-btn {
+      font-family: var(--font);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--color-border);
+      background: none;
+      cursor: pointer;
+      color: var(--color-text-muted);
+      transition: all 180ms ease;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #fff;
+    }
+
+    /* MAIN */
+    main {
+      max-width: 780px;
+      margin: 2.5rem auto;
+      padding: 0 1.25rem 4rem;
+    }
+
+    .card {
+      background: var(--color-surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 600px) {
+      .card { padding: 1.5rem 1.25rem; }
+    }
+
+    .update-badge {
+      display: inline-block;
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin: 2rem 0 0.6rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--color-divider);
+    }
+    h2:first-of-type { border-top: none; margin-top: 0; }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.2rem 0 0.3rem;
+      color: var(--color-text);
+    }
+
+    p { margin-bottom: 0.75rem; color: var(--color-text); max-width: 68ch; }
+    ul { padding-left: 1.4rem; margin-bottom: 0.75rem; }
+    ul li { margin-bottom: 0.3rem; }
+    a { color: var(--color-primary); text-decoration: underline; }
+
+    /* INFO BOXES */
+    .info-box {
+      background: var(--color-primary-light);
+      border-left: 3px solid var(--color-primary);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+    }
+    .info-box p { margin: 0; font-size: 0.95rem; }
+
+    .warning-box {
+      background: var(--color-warning-light);
+      border-left: 3px solid var(--color-warning);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+    }
+    .warning-box p { margin: 0; font-size: 0.95rem; }
+
+    .danger-box {
+      background: var(--color-error-light);
+      border-left: 3px solid var(--color-error);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+    }
+    .danger-box p { margin: 0; font-size: 0.95rem; color: var(--color-error); font-weight: 500; }
+
+    /* STEPS */
+    .steps { list-style: none; padding: 0; margin: 1rem 0; }
+    .steps li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .steps li:last-child { border-bottom: none; }
+    .step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--color-primary);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-top: 0.1rem;
+    }
+    .step-text strong { display: block; font-size: 1rem; margin-bottom: 0.15rem; }
+    .step-text span { font-size: 0.9rem; color: var(--color-text-muted); }
+
+    /* EMAIL BUTTON */
+    .email-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--color-primary);
+      color: #fff;
+      font-family: var(--font);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      border: none;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 180ms ease;
+      margin-top: 0.5rem;
+    }
+    .email-btn:hover { background: #0c4e54; color: #fff; text-decoration: none; }
+
+    /* DATA TABLE */
+    .data-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    .data-table th {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      font-weight: 600;
+      color: var(--color-text-muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .data-table td {
+      padding: 0.65rem 0.75rem;
+      border: 1px solid var(--color-border);
+      vertical-align: top;
+    }
+    .data-table tr:nth-child(even) td { background: #fafaf8; }
+    .badge-deleted {
+      display: inline-block;
+      background: #fde8e6;
+      color: var(--color-error);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+    }
+    .badge-kept {
+      display: inline-block;
+      background: #fef3e0;
+      color: var(--color-warning);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      border-top: 1px solid var(--color-divider);
+    }
+    footer a { color: var(--color-primary); }
+
+    /* HIDDEN LANG */
+    [lang-content] { display: none; }
+    [lang-content].visible { display: block; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="/">
+    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="18" cy="18" r="18" fill="rgba(255,255,255,0.15)"/>
+      <path d="M10 22c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="18" cy="13" r="3" fill="#fff"/>
+      <path d="M14 26l4-4 4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="logo-text">RideConnect</span>
+  </a>
+  <h1>Elimina Account / Delete Account</h1>
+  <p class="subtitle">Come richiedere la cancellazione del tuo account e dei tuoi dati / How to request account and data deletion</p>
+</header>
+
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('it')" id="btn-it">🇮🇹 Italiano</button>
+  <button class="lang-btn" onclick="setLang('en')" id="btn-en">🇬🇧 English</button>
+</div>
+
+<main>
+
+  <!-- ===== ITALIANO ===== -->
+  <div lang-content="it" class="visible">
+    <div class="card">
+      <span class="update-badge">Ultimo aggiornamento: 27 aprile 2026</span>
+
+      <h2>Come eliminare il tuo account</h2>
+      <p>Puoi richiedere l'eliminazione del tuo account RideConnect e di tutti i dati associati in qualsiasi momento, seguendo una delle procedure indicate di seguito.</p>
+
+      <div class="info-box">
+        <p>ℹ️ <strong>Il tuo diritto alla cancellazione è garantito.</strong> In conformità al Regolamento (UE) 2016/679 (GDPR), hai il diritto di richiedere la cancellazione di tutti i tuoi dati personali. Elaboreremo la tua richiesta entro <strong>30 giorni</strong>.</p>
+      </div>
+
+      <h2>Metodo 1 – Dall'app RideConnect</h2>
+      <p>Il modo più rapido per eliminare il tuo account è direttamente dall'applicazione:</p>
+      <ol class="steps">
+        <li>
+          <span class="step-num">1</span>
+          <span class="step-text">
+            <strong>Apri l'app RideConnect</strong>
+            <span>Accedi con il tuo account</span>
+          </span>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <span class="step-text">
+            <strong>Vai su Profilo</strong>
+            <span>Tocca l'icona del profilo in basso a destra</span>
+          </span>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <span class="step-text">
+            <strong>Apri le Impostazioni</strong>
+            <span>Scorri fino alla sezione "Account"</span>
+          </span>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <span class="step-text">
+            <strong>Seleziona "Elimina Account"</strong>
+            <span>Tocca l'opzione e conferma la tua scelta</span>
+          </span>
+        </li>
+        <li>
+          <span class="step-num">5</span>
+          <span class="step-text">
+            <strong>Conferma l'eliminazione</strong>
+            <span>Inserisci la password se richiesto e conferma definitivamente</span>
+          </span>
+        </li>
+      </ol>
+
+      <h2>Metodo 2 – Richiesta via Email</h2>
+      <p>Se non riesci ad accedere all'app o preferisci farlo via email, invia una richiesta di cancellazione al nostro team:</p>
+      <ul>
+        <li>Oggetto email: <strong>"Richiesta eliminazione account"</strong></li>
+        <li>Indica l'indirizzo email associato al tuo account RideConnect</li>
+        <li>Specificheremo la ricezione entro 48 ore lavorative</li>
+        <li>La cancellazione completa avverrà entro <strong>30 giorni</strong> dalla richiesta</li>
+      </ul>
+      <a href="mailto:privacy@rideconnect.app?subject=Richiesta%20eliminazione%20account&body=Salve%2C%0A%0ARichiedo%20l'eliminazione%20del%20mio%20account%20RideConnect%20e%20di%20tutti%20i%20dati%20associati.%0A%0AEmail%20dell'account%3A%20%5Binserisci%20qui%5D%0A%0AGrazie." class="email-btn" target="_blank" rel="noopener noreferrer">
+        ✉️ Invia richiesta via email
+      </a>
+
+      <h2>Cosa viene eliminato</h2>
+      <p>Di seguito trovi un riepilogo di tutti i dati cancellati e di quelli eventualmente conservati per obbligo legale:</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Tipo di dato</th>
+            <th>Azione</th>
+            <th>Tempistica</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Profilo utente (nome, email, foto)</td>
+            <td><span class="badge-deleted">Eliminato</span></td>
+            <td>Entro 30 giorni</td>
+          </tr>
+          <tr>
+            <td>Numero di telefono</td>
+            <td><span class="badge-deleted">Eliminato</span></td>
+            <td>Entro 30 giorni</td>
+          </tr>
+          <tr>
+            <td>Dati del veicolo</td>
+            <td><span class="badge-deleted">Eliminato</span></td>
+            <td>Entro 30 giorni</td>
+          </tr>
+          <tr>
+            <td>Storico viaggi e partecipazioni</td>
+            <td><span class="badge-deleted">Eliminato</span></td>
+            <td>Entro 30 giorni</td>
+          </tr>
+          <tr>
+            <td>Token notifiche push</td>
+            <td><span class="badge-deleted">Eliminato</span></td>
+            <td>Immediato</td>
+          </tr>
+          <tr>
+            <td>Immagini caricate (Cloudinary)</td>
+            <td><span class="badge-deleted">Eliminato</span></td>
+            <td>Entro 30 giorni</td>
+          </tr>
+          <tr>
+            <td>Log di sicurezza e fatturazione</td>
+            <td><span class="badge-kept">Conservato</span></td>
+            <td>Fino a 6 mesi (obbligo legale)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="warning-box">
+        <p>⚠️ <strong>Attenzione:</strong> alcuni dati potrebbero essere conservati per un periodo limitato al fine di adempiere ad obblighi legali o per la risoluzione di eventuali controversie, come previsto dall'art. 17 GDPR.</p>
+      </div>
+
+      <div class="danger-box">
+        <p>🗑️ L'eliminazione dell'account è un'operazione irreversibile. Una volta confermata, non sarà possibile recuperare i dati o l'accesso all'account.</p>
+      </div>
+
+      <h2>Domande o assistenza</h2>
+      <p>Per qualsiasi domanda relativa alla cancellazione del tuo account o al trattamento dei tuoi dati personali, contatta il nostro team:</p>
+      <p>📧 <a href="mailto:privacy@rideconnect.app">privacy@rideconnect.app</a></p>
+      <p>Consulta anche la nostra <a href="/">Informativa sulla Privacy</a> per ulteriori dettagli sul trattamento dei dati.</p>
+    </div>
+  </div>
+
+  <!-- ===== ENGLISH ===== -->
+  <div lang-content="en">
+    <div class="card">
+      <span class="update-badge">Last updated: April 27, 2026</span>
+
+      <h2>How to delete your account</h2>
+      <p>You can request the deletion of your RideConnect account and all associated data at any time by following one of the procedures described below.</p>
+
+      <div class="info-box">
+        <p>ℹ️ <strong>Your right to deletion is guaranteed.</strong> In accordance with Regulation (EU) 2016/679 (GDPR), you have the right to request the deletion of all your personal data. We will process your request within <strong>30 days</strong>.</p>
+      </div>
+
+      <h2>Method 1 – From the RideConnect App</h2>
+      <p>The fastest way to delete your account is directly from the application:</p>
+      <ol class="steps">
+        <li>
+          <span class="step-num">1</span>
+          <span class="step-text">
+            <strong>Open the RideConnect app</strong>
+            <span>Log in to your account</span>
+          </span>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <span class="step-text">
+            <strong>Go to Profile</strong>
+            <span>Tap the profile icon at the bottom right</span>
+          </span>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <span class="step-text">
+            <strong>Open Settings</strong>
+            <span>Scroll down to the "Account" section</span>
+          </span>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <span class="step-text">
+            <strong>Select "Delete Account"</strong>
+            <span>Tap the option and confirm your choice</span>
+          </span>
+        </li>
+        <li>
+          <span class="step-num">5</span>
+          <span class="step-text">
+            <strong>Confirm deletion</strong>
+            <span>Enter your password if prompted and confirm permanently</span>
+          </span>
+        </li>
+      </ol>
+
+      <h2>Method 2 – Email Request</h2>
+      <p>If you cannot access the app or prefer to do it via email, send a deletion request to our team:</p>
+      <ul>
+        <li>Email subject: <strong>"Account deletion request"</strong></li>
+        <li>Include the email address associated with your RideConnect account</li>
+        <li>We will confirm receipt within 48 business hours</li>
+        <li>Complete deletion will occur within <strong>30 days</strong> of the request</li>
+      </ul>
+      <a href="mailto:privacy@rideconnect.app?subject=Account%20deletion%20request&body=Hello%2C%0A%0AI%20am%20requesting%20the%20deletion%20of%20my%20RideConnect%20account%20and%20all%20associated%20data.%0A%0AAccount%20email%3A%20%5Benter%20here%5D%0A%0AThank%20you." class="email-btn" target="_blank" rel="noopener noreferrer">
+        ✉️ Send deletion request via email
+      </a>
+
+      <h2>What gets deleted</h2>
+      <p>Below is a summary of all data that will be deleted and any data that may be retained due to legal obligations:</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Data Type</th>
+            <th>Action</th>
+            <th>Timeline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>User profile (name, email, photo)</td>
+            <td><span class="badge-deleted">Deleted</span></td>
+            <td>Within 30 days</td>
+          </tr>
+          <tr>
+            <td>Phone number</td>
+            <td><span class="badge-deleted">Deleted</span></td>
+            <td>Within 30 days</td>
+          </tr>
+          <tr>
+            <td>Vehicle data</td>
+            <td><span class="badge-deleted">Deleted</span></td>
+            <td>Within 30 days</td>
+          </tr>
+          <tr>
+            <td>Ride history and participation</td>
+            <td><span class="badge-deleted">Deleted</span></td>
+            <td>Within 30 days</td>
+          </tr>
+          <tr>
+            <td>Push notification tokens</td>
+            <td><span class="badge-deleted">Deleted</span></td>
+            <td>Immediately</td>
+          </tr>
+          <tr>
+            <td>Uploaded images (Cloudinary)</td>
+            <td><span class="badge-deleted">Deleted</span></td>
+            <td>Within 30 days</td>
+          </tr>
+          <tr>
+            <td>Security and billing logs</td>
+            <td><span class="badge-kept">Retained</span></td>
+            <td>Up to 6 months (legal obligation)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="warning-box">
+        <p>⚠️ <strong>Note:</strong> Some data may be retained for a limited period to comply with legal obligations or for the resolution of potential disputes, as provided by Art. 17 GDPR.</p>
+      </div>
+
+      <div class="danger-box">
+        <p>🗑️ Account deletion is irreversible. Once confirmed, it will not be possible to recover data or access to the account.</p>
+      </div>
+
+      <h2>Questions or support</h2>
+      <p>For any questions regarding the deletion of your account or the processing of your personal data, contact our team:</p>
+      <p>📧 <a href="mailto:privacy@rideconnect.app">privacy@rideconnect.app</a></p>
+      <p>Also check our <a href="/">Privacy Policy</a> for more details on data processing.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <a href="/">← Privacy Policy</a> &nbsp;|&nbsp; &copy; 2026 RideConnect. Tutti i diritti riservati / All rights reserved.
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[lang-content]').forEach(el => {
+      el.classList.toggle('visible', el.getAttribute('lang-content') === lang);
+    });
+    document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  }
+</script>
+
+</body>
+</html>
